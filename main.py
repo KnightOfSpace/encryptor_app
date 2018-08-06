@@ -1,3 +1,12 @@
+import webapp2
+from random import shuffle
+import jinja2
+import os
+
+the_jinja_env = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 # Dictionary for encryption: Key is in original message, value is in encoded message
 # A1Z26 Encodes based on alphabet position; Difficult to decode since some replacements are multi-character; Will attempt workaround after MVP is completed
@@ -121,7 +130,29 @@ def decrypt_ceasar(message):
         decrypted_str += decrypt_dict[char]
     return decrypted_str
     
-print encrypt_A1Z26("Hello there!")
-encrypted1 = encrypt_ceasar("Hello there!")
-print "Encrypted: " + encrypted1
-print "Decrypted: " + decrypt_ceasar(encrypted1)
+# print encrypt_A1Z26("Hello there!")
+# encrypted1 = encrypt_ceasar("Hello there!")
+# print "Encrypted: " + encrypted1
+# print "Decrypted: " + decrypt_ceasar(encrypted1)
+
+class WelcomePage(webapp2.RequestHandler):
+    def get(self):
+        about_template = the_jinja_env.get_template('templates/about.html')
+        self.response.write(about_template.render())
+
+class ResultPage(webapp2.RequestHandler):
+    def post(self):
+        about_template = the_jinja_env.get_template('templates/result.html')
+        message = self.request.get("message")
+        encrypted_message = encrypt_ceasar("message")
+        encrypted_dict = {
+            'encrypt_msg': encrypted_message,
+            'msg': message
+        }
+        self.response.write(about_template.render(encrypted_dict))
+
+
+app = webapp2.WSGIApplication([
+    ('/', WelcomePage),
+    ('/result', ResultPage),
+], debug=True)
