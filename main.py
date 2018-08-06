@@ -142,7 +142,11 @@ class ResultPage(webapp2.RequestHandler):
     def post(self):
         about_template = the_jinja_env.get_template('templates/result.html')
         unencrypt_message = self.request.get("message")
-        encrypted_message = encrypt_caesar(unencrypt_message)
+        encryption = self.request.get("encrypt")
+        if encryption == "encrypt":
+            encrypted_message = encrypt_caesar(unencrypt_message)
+        elif encryption == "decrypt":
+            encrypted_message = decrypt_caesar(unencrypt_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
             'msg': unencrypt_message
