@@ -9,7 +9,12 @@
     <p> Here is a secrect encryption that you could send to your friends! Try it out, Now!</p>
   <form method = POST action = "/result">
       Enter Message <br>
+      
       <input type = "text" name = "message" value = "Input message here"><br>
+      <select>
+          <option value="ceaser">Ceaser</option>
+          <option value="atbash">ATBASH</option>
+      </select><br>
       <input type = "radio" name = "encrypt" value = "encrypt">Encrypt<br>
       <input type = "radio" name = "encrypt" value = "decrypt">Decrypt<br>
   <input type="submit" name="Encrypt Your Message"><br>
