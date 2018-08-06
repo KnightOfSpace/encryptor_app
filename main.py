@@ -54,7 +54,7 @@ def encrypt_A1Z26(message):
     return encrypted_str
 
 #Ceasar encodes in a + or - 3; Each letter is encoded with it's value 3 after or before. A = D, B = E, etc.
-def encrypt_ceasar(message):
+def encrypt_caesar(message):
     encrypt_dict = {
         'a': 'd',
         'b': 'e',
@@ -93,7 +93,7 @@ def encrypt_ceasar(message):
         encrypted_str += encrypt_dict[char.lower()]
     return encrypted_str
 
-def decrypt_ceasar(message):
+def decrypt_caesar(message):
     decrypt_dict = {
         'd': 'a',
         'e': 'b',
@@ -142,7 +142,7 @@ class ResultPage(webapp2.RequestHandler):
     def post(self):
         about_template = the_jinja_env.get_template('templates/result.html')
         unencrypt_message = self.request.get("message")
-        encrypted_message = encrypt_ceasar(unencrypt_message)
+        encrypted_message = encrypt_caesar(unencrypt_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
             'msg': unencrypt_message
