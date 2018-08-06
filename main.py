@@ -38,7 +38,7 @@ def encrypt_A1Z26(message):
         'x': '24',
         'y': '25',
         'z': '26',
-        ' ': '0',
+        ' ': ' ',
         ',': ',',
         '.': '.',
         '!': '!',
@@ -129,11 +129,6 @@ def decrypt_ceasar(message):
     for char in message:
         decrypted_str += decrypt_dict[char]
     return decrypted_str
-    
-# print encrypt_A1Z26("Hello there!")
-# encrypted1 = encrypt_ceasar("Hello there!")
-# print "Encrypted: " + encrypted1
-# print "Decrypted: " + decrypt_ceasar(encrypted1)
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
@@ -150,7 +145,6 @@ class ResultPage(webapp2.RequestHandler):
             'msg': message
         }
         self.response.write(about_template.render(encrypted_dict))
-
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
