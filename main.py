@@ -137,7 +137,7 @@ def decrypt_ceasar(message):
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
-        about_template = the_jinja_env.get_template('templates/about.html')
+        about_template = the_jinja_env.get_template('templates/welcome.html')
         self.response.write(about_template.render())
 
 class ResultPage(webapp2.RequestHandler):
