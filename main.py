@@ -1,5 +1,6 @@
 
-
+# Dictionary for encryption: Key is in original message, value is in encoded message
+# A1Z26 Encodes based on alphabet position; Difficult to decode since some replacements are multi-character; Will attempt workaround after MVP is completed
 def encrypt_A1Z26(message):
     encrypt_dict = {
         'a': '1',
@@ -40,4 +41,87 @@ def encrypt_A1Z26(message):
         encrypted_str += '-'
     return encrypted_str
 
+#Ceasar encodes in a + or - 3; Each letter is encoded with it's value 3 after or before. A = D, B = E, etc.
+def encrypt_ceasar(message):
+    encrypt_dict = {
+        'a': 'd',
+        'b': 'e',
+        'c': 'f',
+        'd': 'g',
+        'e': 'h',
+        'f': 'i',
+        'g': 'j',
+        'h': 'k',
+        'i': 'l',
+        'j': 'm',
+        'k': 'n',
+        'l': 'o',
+        'm': 'p',
+        'n': 'q',
+        'o': 'r',
+        'p': 's',
+        'q': 't',
+        'r': 'u',
+        's': 'v',
+        't': 'w',
+        'u': 'x',
+        'v': 'y',
+        'w': 'z',
+        'x': 'a',
+        'y': 'b',
+        'z': 'c',
+        '.': '.',
+        ',': ',',
+        '!': '!',
+        '?': '?',
+        ' ': ' '
+    }
+    encrypted_str = ''
+    for char in message:
+        encrypted_str += encrypt_dict[char.lower()]
+    return encrypted_str
+
+def decrypt_ceasar(message):
+    decrypt_dict = {
+        'd': 'a',
+        'e': 'b',
+        'f': 'c',
+        'g': 'd',
+        'h': 'e',
+        'i': 'f',
+        'j': 'g',
+        'k': 'h',
+        'l': 'i',
+        'm': 'j',
+        'n': 'k',
+        'o': 'l',
+        'p': 'm',
+        'q': 'n',
+        'r': 'o',
+        's': 'p',
+        't': 'q',
+        'u': 'r',
+        'v': 's',
+        'w': 't',
+        'x': 'u',
+        'y': 'v',
+        'z': 'w',
+        'a': 'x',
+        'b': 'y',
+        'c': 'z',
+        ' ': ' ',
+        ',': ',',
+        '!': '!',
+        '.': '.',
+        '?': '?'
+        
+    }
+    decrypted_str = ''
+    for char in message:
+        decrypted_str += decrypt_dict[char]
+    return decrypted_str
+    
 print encrypt_A1Z26("Hello there!")
+encrypted1 = encrypt_ceasar("Hello there!")
+print "Encrypted: " + encrypted1
+print "Decrypted: " + decrypt_ceasar(encrypted1)
