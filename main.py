@@ -141,11 +141,11 @@ class WelcomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         about_template = the_jinja_env.get_template('templates/result.html')
-        message = self.request.get("message")
-        encrypted_message = encrypt_ceasar("message")
+        unencrypt_message = self.request.get("message")
+        encrypted_message = encrypt_ceasar(unencrypt_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
-            'msg': message
+            'msg': unencrypt_message
         }
         self.response.write(about_template.render(encrypted_dict))
 
