@@ -1,3 +1,6 @@
+# TODO: Import APIs (SHA256)
+# Clean up CSS, make it look pretty
+
 import webapp2
 from random import shuffle
 import jinja2
