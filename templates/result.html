@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+
     <head>
-        <title>Encrypted Message</title>
+        <title class="title">Encrypted Message</title>
          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     </head>
     <style>
+    
+            .title {
+                text-align: center;
+                display:inline-block;
+               position:relative;
+            }
+
           .btn.share-btn {
               border: medium none;
               box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
@@ -63,15 +72,27 @@
           .email {
               background: #444444 none repeat scroll 0 0;
           }
+          div {
+        width: 300px;
+        overflow: auto;
+        border: 10px solid black;
+        padding: 20px 30px;
+        margin: auto;
+        margin-top: 5%;
+        background-image: url("http://celestial6.com/stuff/fades/hover.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
         </style>
+    
     <body>
+        <div>
+        
         <h1>Encrypted Message:</h1>
         <h2>{{encrypt_msg}}</h2>
-
-    </body>
-    
-      
-   <!-- Social Button HTML -->
+        </div>
+        <center>
+         <!-- Social Button HTML -->
 
         <!-- Twitter -->
         <a href="http://twitter.com/share?url=<URL>&text=<TEXT>&via=<VIA>" target="_blank" class="btn share-btn twitter">
@@ -107,6 +128,10 @@
         <a href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="btn share-btn email">
             <i class="fa fa-envelope"></i>
         </a>
+        </center>
 
-</body>
+
+
+    </body>
+    
 </html>
