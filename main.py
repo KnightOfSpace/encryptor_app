@@ -5,6 +5,7 @@ import webapp2
 from random import shuffle
 import jinja2
 import os
+from random import randint
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -141,20 +142,32 @@ class WelcomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         about_template = the_jinja_env.get_template('templates/result.html')
-        unencrypt_message = self.request.get("message")
+        encrypted_message = self.request.get("message")
         encryption = self.request.get("encrypt")
-        
+        random_num = randint(1, 11)
         if encryption == "encrypt":
-            encrypted_message = encrypt_caesar(unencrypt_message)
+            for i in range(random_num):
+                encrypted_message = encrypt_caesar(encrypted_message)
         elif encryption == "decrypt":
-            encrypted_message = decrypt_caesar(unencrypt_message)
+            for i in range(random_num):
+                encrypted_message = decrypt_caesar(encrypted_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
-            'msg': unencrypt_message
+            'randnum': random_num
         }
         self.response.write(about_template.render(encrypted_dict))
+
+class testapi(webapp2.RequestHandler):
+    def get(self):
+        num_encode = randint(1, 11)
+        message = 'Hello there!'
+        for num in range(num_encode):
+            message = encrypt_caesar(message)
+        self.response.write(message)
+    
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
     ('/result', ResultPage),
+    ('/testapi', testapi)
 ], debug=True)
