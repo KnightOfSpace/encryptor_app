@@ -134,6 +134,84 @@ def decrypt_caesar(message):
         decrypted_str += decrypt_dict[char]
     return decrypted_str
 
+def encrypt_atbash(message):
+    encrypt_dict = {
+        'a': 'z',
+        'b': 'y',
+        'c': 'x',
+        'd': 'w',
+        'e': 'v',
+        'f': 'u',
+        'g': 't',
+        'h': 's',
+        'i': 'r',
+        'j': 'q',
+        'k': 'p',
+        'l': 'o',
+        'm': 'n',
+        'n': 'm',
+        'o': 'l',
+        'p': 'k',
+        'q': 'j',
+        'r': 'i',
+        's': 'h',
+        't': 'g',
+        'u': 'f',
+        'v': 'e',
+        'w': 'd',
+        'x': 'c',
+        'y': 'b',
+        'z': 'a',
+        ' ': ' ',
+        ',': ',',
+        '.': '.',
+        '!': '!',
+        '?': '?'
+    }
+    encrypted_str = ''
+    for char in message:
+        encrypted_str += encrypt_dict[char.lower()]
+    return encrypted_str
+
+def decrypt_atbash(message):
+    decrypt_dict = {
+        'z': 'a',
+        'y': 'b',
+        'x': 'c',
+        'w': 'd',
+        'v': 'e',
+        'u': 'f',
+        't': 'g',
+        's': 'h',
+        'r': 'i',
+        'q': 'j',
+        'p': 'k',
+        'o': 'l',
+        'n': 'm',
+        'm': 'n',
+        'l': 'o',
+        'k': 'p',
+        'j': 'q',
+        'i': 'r',
+        'h': 's',
+        'g': 't',
+        'f': 'u',
+        'e': 'v',
+        'd': 'w',
+        'c': 'x',
+        'b': 'y',
+        'a': 'z',
+        ' ': ' ',
+        '.': '.',
+        ',': ',',
+        '!': '!',
+        '?': '?'
+    }
+    decrypted_str = ''
+    for char in message:
+        decrypted_str += decrypt_dict[char.lower()]
+    return decrypted_str
+
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
         about_template = the_jinja_env.get_template('templates/welcome.html')
@@ -144,30 +222,27 @@ class ResultPage(webapp2.RequestHandler):
         about_template = the_jinja_env.get_template('templates/result.html')
         encrypted_message = self.request.get("message")
         encryption = self.request.get("encrypt")
+        encrypt_type = self.request.get("type")
         random_num = randint(1, 11)
-        if encryption == "encrypt":
-            for i in range(random_num):
+        if encrypt_type == "atbash":
+            if encryption == "encrypt":
+                encrypted_message = encrypt_atbash(encrypted_message)
+            elif encryption == "decrypt":
+                encrypted_message = decrypt_atbash(encrypted_message)
+        
+        elif encrypt_type == "caesar":
+            if encryption == "encrypt":
                 encrypted_message = encrypt_caesar(encrypted_message)
-        elif encryption == "decrypt":
-            for i in range(random_num):
+            elif encryption == "decrypt":
                 encrypted_message = decrypt_caesar(encrypted_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
             'randnum': random_num
         }
         self.response.write(about_template.render(encrypted_dict))
-
-class testapi(webapp2.RequestHandler):
-    def get(self):
-        num_encode = randint(1, 11)
-        message = 'Hello there!'
-        for num in range(num_encode):
-            message = encrypt_caesar(message)
-        self.response.write(message)
     
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
-    ('/result', ResultPage),
-    ('/testapi', testapi)
+    ('/result', ResultPage)
 ], debug=True)
