@@ -148,21 +148,26 @@ class ResultPage(webapp2.RequestHandler):
         if encryption == "encrypt":
             for i in range(random_num):
                 encrypted_message = encrypt_caesar(encrypted_message)
+        elif encryption == "decrypt":
+            for i in range(random_num):
+                encrypted_message = decrypt_caesar(encrypted_message)
         encrypted_dict = {
             'encrypt_msg': encrypted_message,
             'randnum': random_num
         }
         self.response.write(about_template.render(encrypted_dict))
-        
-class DecryptPage(webapp2.RequestHandler):
-    def get(self):
-        self.response.write("Decryption page")
-    def post(self):
-        self.response.write("Decryption page POST")
 
+class testapi(webapp2.RequestHandler):
+    def get(self):
+        num_encode = randint(1, 11)
+        message = 'Hello there!'
+        for num in range(num_encode):
+            message = encrypt_caesar(message)
+        self.response.write(message)
+    
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
     ('/result', ResultPage),
-    ('/decrypt', DecryptPage)
+    ('/testapi', testapi)
 ], debug=True)
