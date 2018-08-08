@@ -271,7 +271,7 @@ class ResultPage(webapp2.RequestHandler):
         
 class DecryptPage(webapp2.RequestHandler):
     def get(self):
-        template = the_jinja_env.get_template('templates/welcome.html')
+        template = the_jinja_env.get_template('templates/decrypt.html')
         # ^^ Placeholder: Wait for Chloe to complete HTML page
         self.response.write("Decryption page")
 
