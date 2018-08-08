@@ -277,7 +277,7 @@ class DecryptResults(webapp2.RequestHandler):
         key = self.request.get('key')
         message = decrypt_message(message, key)
         result_dict = {
-            'message' = message
+            'message': message
         }
         self.response.write(template.render(result_dict))
 
