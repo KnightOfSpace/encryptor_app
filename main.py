@@ -268,13 +268,13 @@ class DecryptPage(webapp2.RequestHandler):
     def get(self):
         template = the_jinja_env.get_template('templates/decrypt.html')
         # ^^ Placeholder: Wait for Chloe to complete HTML page
-        self.response.write("Decryption page")
+        self.response.write(template.render())
 
     
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
     ('/result', ResultPage),
-    ('/decrypt', DecryptPage)
+    ('/decrypt', DecryptPage),
     
 ], debug=True)
