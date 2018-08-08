@@ -14,6 +14,12 @@
                position:relative;
             }
             
+            #centerText{
+                color: #cc1c2e;
+                font-family:Courier ;
+                font-size:20px;
+            }
+            
           .btn.share-btn {
               border: medium none;
               box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
@@ -21,7 +27,7 @@
               cursor: pointer;
               display: inline-block;
               font-size: 1.2em;
-              margin-top: 20%;
+              margin-top:15%;
               opacity: 0.9;
               outline: medium none;
               padding: 8px 16px;
@@ -73,8 +79,9 @@
               background: #444444 none repeat scroll 0 0;
           }
           div {
+        height: auto;
         width: 300px;
-        overflow: auto;
+        /*overflow: auto;*/
         border: 10px solid black;
         padding: 20px 30px;
         margin: auto;
@@ -82,23 +89,24 @@
         background-image: url("http://celestial6.com/stuff/fades/hover.png");
         background-repeat: no-repeat;
         background-size: cover;
+        
     }
         </style>
     
     <body>
         <div>
-        
+        <center>
         <h1>Encrypted Message:</h1>
         <h2>{{encrypt_msg}}</h2>
-        <p>{{randnum}}</p>
+        <p >{{randnum}}</p>
+        </center>
         </div>
         <center>
          <!-- Social Button HTML -->
         </div>
         <center>
          <!-- Social Button HTML -->
-        
-    </body>
+       <p id="centerText">Share your message with a friend. See if they can figure it out!!!</p>
     
       
    <!-- Social Button HTML -->
