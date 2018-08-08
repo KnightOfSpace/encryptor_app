@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
-
-
     <head>
         <title class="title">Encrypted Message</title>
         <meta charset = 'utf-8'>
          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     </head>
     <style>
-    
+            body {
+                background-image: url("https://www.crypteron.com/wp-content/uploads/banner.jpg");
+            }
             .title {
                 text-align: center;
                 display:inline-block;
                position:relative;
             }
             
+            h1 {
+                color:#42FF33;
+                font-family: Lucida;
+                
+            }
+            
+            h2{
+                color:#42FF33;
+                font-family: Lucida
+            ;
+            }
+            
+            
             #centerText{
-                color: #cc1c2e;
+                color: #42FF33;
                 font-family:Courier ;
                 font-size:20px;
             }
@@ -80,27 +93,29 @@
               background: #444444 none repeat scroll 0 0;
           }
           div {
-        height: auto;
-        width: 300px;
-        /*overflow: auto;*/
-        border: 10px solid black;
-        padding: 20px 30px;
-        margin: auto;
-        margin-top: 5%;
-        background-image: url("http://celestial6.com/stuff/fades/hover.png");
-        background-repeat: no-repeat;
-        background-size: cover;
+            height: auto;
+            width: 400px;
+            /*overflow: auto;*/
+            overflow-wrap: break-word;
+            border: 7px solid red;
+            padding: 20px 30px;
+            margin: auto;
+            margin-top: 5%;
+            margin-bottom: 9%;
+            background-image: url("http://celestial6.com/stuff/fades/hover.png");
+            background-repeat: no-repeat;
+            background-size: cover;
         
-    }
+            }
         </style>
-    
     <body>
         <div>
         <center>
         <h1>Encrypted Message:</h1><br>
+        
         <h2>{{ciphertext}}</h2><br>
-        Your key: <br>
-        {{key}}
+        <h2>Your key: <br>
+        {{key}}</h2>
         </center>
         </div>
         <center>
