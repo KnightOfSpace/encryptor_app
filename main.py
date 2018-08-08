@@ -287,6 +287,6 @@ app = webapp2.WSGIApplication([
     ('/', WelcomePage),
     ('/result', ResultPage),
     ('/decrypt', DecryptPage),
-    ('decryptresult', DecryptResults)
+    ('/decryptresult', DecryptResults)
     
 ], debug=True)

@@ -6,23 +6,17 @@
 </head>
 <center>
     <h1>Decrypt Your Message Here</h1>
-    <form method = POST action="/result">
+    <form method = POST action="/decryptresult">
         <input type="text" name = "message" 
       onfocus="if(this.value==this.defaultValue)this.value=''"    
       onblur="if(this.value=='')this.value=this.defaultValue" 
       value="Enter your message here">
     </form><br>
     <form>
-    <input type="text" name = "key_value" 
+    <input type="text" name = "key" 
     onfocus="if(this.value==this.defaultValue)this.value=''"    
       onblur="if(this.value=='')this.value=this.defaultValue" 
       value="Enter your KEY here">
-    </form>
-    <form>
-    <input type="text" name="IV_Value"
-    onfocus="if(this.value==this.defaultValue)this.value=''"    
-      onblur="if(this.value=='')this.value=this.defaultValue" 
-    value="Enter the IV here">
     </form>
     </select><br>
     <input type="submit" name="Decrypt Your Message"><br>
