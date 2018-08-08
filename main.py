@@ -6,7 +6,7 @@ from random import shuffle
 import jinja2
 import os
 from random import randint
-from Crypto.Cipher import AES
+from Crypto.Cipher import XOR
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -216,26 +216,21 @@ the_jinja_env = jinja2.Environment(
 
 def encrypt_message(message):
     key = ''
-    IV = ''
-    for i in range(16):
-        key += str(randint(0, 10))
-        IV += str(randint(0,10))
-    
-    while len(message)%16 != 0:
-        message += 'X'
-    
-    obj = AES.new(key, AES.MODE_CBC, IV)
+    for i in range(randint(1, 33)):
+        key += str(randint(0,9))
+    obj = XOR.new(key)
     ciphertext = obj.encrypt(message)
     cipher_dict = {
         'key': key,
-        'IV': IV,
-        'msg': ciphertext
+        'ciphertext': ciphertext
     }
     
     return cipher_dict
+
+print encrypt_message("Hello there!")
     
-def decrypt_message(message, key, iv):
-    obj = AES.new(key, AES.MODE_CBC, iv)
+def decrypt_message(message, key):
+    obj = XOR.new(key)
     decrypted_message = obj.decrypt(message)
     return decrypted_message
 
@@ -247,8 +242,8 @@ class WelcomePage(webapp2.RequestHandler):
 class ResultPage(webapp2.RequestHandler):
     def post(self):
         about_template = the_jinja_env.get_template('templates/result.html')
-        encrypted_message = self.request.get("message")
-        encrypted_dict = encrypt_message(encrypted_message)
+        message = self.request.get("message")
+        encrypted_dict = encrypt_message(message)
         # encryption = self.request.get("encrypt")
         # encrypt_type = self.request.get("type")
         # random_num = randint(1, 11)

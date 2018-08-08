@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
+
+
     <head>
         <title class="title">Encrypted Message</title>
+        <meta charset = 'utf-8'>
          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     </head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-            
-            body {
-                background-image: url("https://www.crypteron.com/wp-content/uploads/banner.jpg");
-            }
-                    
+    
             .title {
                 text-align: center;
                 display:inline-block;
@@ -83,9 +81,9 @@
           }
           div {
         height: auto;
-        width: 900px;
+        width: 300px;
         /*overflow: auto;*/
-        border: 7px solid black;
+        border: 10px solid black;
         padding: 20px 30px;
         margin: auto;
         margin-top: 5%;
@@ -97,12 +95,12 @@
         </style>
     
     <body>
-
         <div>
         <center>
-        <h1>Encrypted Message:</h1>
-        <h2>{{encrypt_msg}}</h2>
-        <!--<p >{{randnum}}</p>-->
+        <h1>Encrypted Message:</h1><br>
+        <h2>{{ciphertext}}</h2><br>
+        Your key: <br>
+        {{key}}
         </center>
         </div>
         <center>
@@ -142,10 +140,10 @@
         </a>
 
         <!-- Email -->
+
         <a href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="btn share-btn email">
             <i class="fa fa-envelope"></i>
         </a>
-        
         </center>
 
 
