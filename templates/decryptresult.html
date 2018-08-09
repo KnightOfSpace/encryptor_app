@@ -6,6 +6,35 @@
          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     </head>
     <style>
+    
+    .hyperlink {
+        text-align: center;
+        color: #ffffff;
+        font-size:24px;
+        
+    }
+
+    body{
+         background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/BY8x1xp/videoblocks-decryption-key-accepted-hacker-finding-password-to-email-with-secret-data_bo14hiyvf_thumbnail-full08.png");
+           background-repeat: no-repeat;
+           background-size: 100% 300%;
+    }
+    h1{
+        text-align:center;
+        font-size:70Px;
+        color:rgb(204, 0, 0);
+    }
+    h2{
+        text-align: center;
+        font-size:35px;
+        color:#00ff00;
+    }
+    a:link {
+        color:#ff0000;
+    }
+    a:visited {
+        color:#cc0000;
+    }
         .btn.share-btn {
               border: medium none;
               box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
@@ -64,13 +93,28 @@
           .email {
               background: #444444 none repeat scroll 0 0;
           }
+          div {
+            height: auto;
+            width: 1000px;
+            position:fixed; bottom:0px; left:20%; right:20%;
+          /*overflow: auto;*/
+            overflow-wrap: break-word;
+            padding: 20px 30px;
+            margin: auto;
+            margin-top: 10%;
+            background-image: url("http://celestial6.com/stuff/fades/hover.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        
+            }
     </style>
-    <body>
-        <h1>Decrypted Message</h1>
+  <body>
+        <h1>- D E C R Y P T E D - M E S S A G E -</h1>
         <h2>{{message}}</h2>
         
-        <p>Wanna encrypt another message? CLick <a href="/">HERE</a></p>
+        <p class= "hyperlink">Want to encrypt another message? Click <a href="/">HERE</a></p>
         <p>share the actual message</p>
+        <div>
         <a href="http://twitter.com/share?url=<URL>&text=<TEXT>&via=<VIA>" target="_blank" class="btn share-btn twitter">
             <i class="fa fa-twitter"></i>
         </a>
@@ -104,6 +148,6 @@
 
         <a href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="btn share-btn email">
             <i class="fa fa-envelope"></i>
-        </a>
+        </a></div>
     </body>
 </html>
