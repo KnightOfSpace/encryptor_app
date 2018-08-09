@@ -6,12 +6,18 @@
 </head>
 <style>
        body {
-           background-image: url("https://www.cyphre.com/wp-content/uploads/2018/05/Future-Encryption-Methods-Quantum-Cryptography-for-Cybersecurity.jpg");
- }
+           background-image: url("https://www.sookasa.com/wp-content/uploads/2015/02/shutterstock_148787003-1024x768.jpg");
+           background-repeat: no-repeat;
+           background-size: 100% 320%;
+       }
+       
+       #Text {
+         font-size:20px;
+         text-align:center;
+       }
 </style>
 <body>
 <center>
-
   <h1>Enter Your Message Here!</h1>
     <p> Here is a secrect encryption that you could send to your friends! Try it out, Now!</p>
   <form method = POST action = "/result">
@@ -19,16 +25,16 @@
       
       <!--<input type = "text" name = "message" value = "Input message here"><br>-->
       <!--<label for="user">user</label>-->
-      <input type="text" name = "message" 
+      <input type="text" name = "message" id = Text size = "40";
       onfocus="if(this.value==this.defaultValue)this.value=''"    
       onblur="if(this.value=='')this.value=this.defaultValue" 
       value="Enter your message here"><br>
-      <select name = "type">
-          <option value="caesar">Caesar</option>
-          <option value="atbash">ATBASH</option>
-      </select><br>
-      <input type = "radio" name = "encrypt" value = "encrypt">Encrypt</input>
-      <input type = "radio" name = "encrypt" value = "decrypt">    Decrypt<br>
+      <!--<select name = "type">-->
+      <!--    <option value="caesar">Caesar</option>-->
+      <!--    <option value="atbash">ATBASH</option>-->
+      <!--</select><br>-->
+      <!--<input type = "radio" name = "encrypt" value = "encrypt">Encrypt</input>-->
+      <!--<input type = "radio" name = "encrypt" value = "decrypt">    Decrypt<br>-->
       <input type="submit" name="Encrypt Your Message"><br>
       <p>Looking for the decryption page?? <a href="/decrypt">Click Here</a></p>
   </form>
