@@ -5,21 +5,39 @@
   <title>Encryption Application</title>
 </head>
 <style>
+
+       h1{
+         font-size:35px;
+       }
        body {
            background-image: url("https://www.sookasa.com/wp-content/uploads/2015/02/shutterstock_148787003-1024x768.jpg");
            background-repeat: no-repeat;
-           background-size: 100% 348%;
+           background-size: 100% 480%;
        }
-       
+       #decrypt {
+         font-size:20px;
+         position:absolute; bottom:8px; left:10px; right:10px;
+         color:rgb(173, 14, 8);
+       }
        #Text {
          font-size:20px;
          text-align:center;
        }
+       a:link {
+        color:rgb(7, 36, 142);
+       }
+       a:visited{
+         color: black;
+       }
+       #description {
+         color:rgb(173, 14, 8);
+         font-size:23px;
+       }
 </style>
 <body>
 <center>
-  <h1>Enter Your Message Here!</h1>
-    <p> Here is a secrect encryption that you could send to your friends! Try it out, Now!</p>
+  <h1>X-CRYPTiON</h1>
+    <p id="description"> Here is a secrect encryption that you could send to your friends! Try it out, Now!</p>
   <form method = POST action = "/result">
       <!--Enter Message <br>-->
       
@@ -36,7 +54,8 @@
       <!--<input type = "radio" name = "encrypt" value = "encrypt">Encrypt</input>-->
       <!--<input type = "radio" name = "encrypt" value = "decrypt">    Decrypt<br>-->
       <input type="submit" name="Encrypt Your Message"><br>
-      <p>Looking for the decryption page?? <a href="/decrypt">Click Here</a></p>
+      <p id ="decrypt">Looking for the decryption page?? 
+      <a href="/decrypt">Click Here</a></p>
   </form>
   </center>
 <br>
