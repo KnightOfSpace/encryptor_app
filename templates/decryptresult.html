@@ -1,51 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title class="title">Encrypted Message</title>
-        <meta charset = 'utf-8'>
+        <title class="title">Decrypted Message</title>
+        <meta charset = "utf-8">
          <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     </head>
     <style>
-         
-            body {
-                background-image: url("http://www.modafinilsale.com/data/out/546/228405473-wallpapers-for-programmers.jpg");
-                background-repeat: no-repeat;
-                background-size:100% 100%; 
-            }
-            
-            .hyperlink{
-                font-size:20px;
-                color:#66ffcc;
-            }
-            .title {
-                text-align: center;
-                display:inline-block;
-               position:relative;
-            }
-            
-            h1 {
-                color:#42FF33;
-                font-family: Lucida;
-                
-            }
-            
-            h2{
-                color:#42FF33;
-                font-family: Lucida
-            ;
-            }
-            
-            
-            #centerText{
-                color:#ffff00  ;
-                font-family:Courier ;
-                font-size:20px;
-                position:absolute; bottom:88px; left:10px; right:10px;
-        
-                
-            }
-            
-          .btn.share-btn {
+        .btn.share-btn {
               border: medium none;
               box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
               color: #fff;
@@ -103,43 +64,13 @@
           .email {
               background: #444444 none repeat scroll 0 0;
           }
-          
-          div {
-            height: auto;
-            width: 400px;
-            /*overflow: auto;*/
-            overflow-wrap: break-word;
-            border: 5px solid yellow;
-            padding: 20px 30px;
-            margin: auto;
-            margin-top: 5%;
-            margin-bottom:6%;
-            background-image: url("http://celestial6.com/stuff/fades/hover.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-        
-            }
-        </style>
+    </style>
     <body>
-    
-        <div>
-        <center>
-        <h1>Encrypted Message:</h1><br>
+        <h1>Decrypted Message</h1>
+        <h2>{{message}}</h2>
         
-        <h2>{{ciphertext}}</h2><br>
-        <h2>Your key: <br>
-        {{key}}</h2>
-        </center>
-        </div>
-        <center>
-            <p class="hyperlink">Want to encrypt another message?<a href="/">Click Here</a></p>
-            <p class= "hyperlink">Want to decrypt this message right now?<a href="/decrypt">Click Here</a></p>
-         <!-- Social Button HTML -->
-       <p id="centerText">Share your message with a friend. See if they can figure it out!</p>
-   
-    
-   <!-- Social Button HTML -->
-   <!-- Twitter -->
+        <p>Wanna encrypt another message? CLick <a href="/">HERE</a></p>
+        <p>share the actual message</p>
         <a href="http://twitter.com/share?url=<URL>&text=<TEXT>&via=<VIA>" target="_blank" class="btn share-btn twitter">
             <i class="fa fa-twitter"></i>
         </a>
@@ -174,10 +105,5 @@
         <a href="mailto:?subject=<SUBJECT&body=<BODY>" target="_blank" class="btn share-btn email">
             <i class="fa fa-envelope"></i>
         </a>
-        </center>
-
-
-
     </body>
-    
 </html>
