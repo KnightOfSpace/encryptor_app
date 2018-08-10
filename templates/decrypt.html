@@ -4,16 +4,36 @@
 <head>
     <meta charset="utf-8">
     <title>Decrypt Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
+<style>
+    body{
+        background-image:url("https://cdn-images-1.medium.com/max/2000/1*NIprKu4bXQXNmW59MDZmfQ.jpeg");
+        background-size:100% 100%;
+        background-repeat: no-repeat;
+        background-position:center;
+        background-attachment:fixed;
+    }
+    h1{
+        font-size:50px;
+        position:center; bottom:9px; left:10px; right:10px;
+        color:rgb(204, 0, 0);
+    }
+    #Text {
+        font-size:20px;
+        text-align:center;
+    }
+    
+</style>
 <center>
     <h1>Decrypt Your Message Here</h1>
     <form method = POST action="/decryptresult">
-        <input type="text" name = "message" 
+        <input type="text" name = "message" id=Text size="30";
       onfocus="if(this.value==this.defaultValue)this.value=''"    
       onblur="if(this.value=='')this.value=this.defaultValue" 
       value="Enter your encrypted message here">
     <br>
-    <input type="text" name = "key" 
+    <input type="text" name = "key" id = Text size ="30";
     onfocus="if(this.value==this.defaultValue)this.value=''"    
       onblur="if(this.value=='')this.value=this.defaultValue" 
       value="Enter your KEY here">
